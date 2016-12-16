@@ -1,0 +1,71 @@
+
+--创建数据库
+
+create database db_vr character set utf8;
+
+--创建User表
+
+CREATE TABLE user(
+    id INT   PRIMARY KEY NOT NULL AUTO_INCREMENT,   --用户编号（主键自增长）
+    username VARCHAR(32) NOT NULL,                  --用户姓名
+    password VARCHAR(32) NOT NULL,                  --用户密码
+    gender INT,                      		        --用户性别   1. 男  0.女
+    email VARCHAR(32) NOT NULL,                     --用户邮箱
+    telephone VARCHAR(32) ,           		        --用户联系电话
+    introduce text      ,            		        --用户介绍
+    activeCode VARCHAR(32),          		        --激活码
+    role INT,                        		        --用户角色    0. 超级管理员   1.管理员    2.会员  3.黄金会员   4.白金会员    5.钻石会员
+    state INT,                       		        --用户状态    0.冻结   1.正常
+    logintime datetime,             		        --登录时间 
+	age INT  ,                     		            --用户年龄 
+	registTime TIMESTAMP  NOT NULL DEFAULT  NOW()   --注册时间
+);
+
+CREATE TABLE USER(
+    id INT   PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    username VARCHAR(32) NOT NULL UNIQUE,                   
+    PASSWORD VARCHAR(32) NOT NULL,               
+    gender INT,                      		     
+    email VARCHAR(32) NOT NULL,                  
+    telephone VARCHAR(32) ,           		     
+    introduce TEXT      ,            		     
+    activeCode VARCHAR(32),          		     
+    role INT,                        		     
+    state INT,                       		     
+    logintime DATETIME  NOT NULL  ,             		      
+    age INT  ,                     		         
+    registTime  TIMESTAMP  NOT NULL DEFAULT  NOW(),
+    isdel INT NOT NULL DEFAULT 1
+);
+
+id       		用户编号（主键自增长）
+username 		用户姓名  (唯一)
+PASSWORD 		用户密码
+gender   		用户性别   1. 男  0.女
+email    		用户邮箱
+telephone       用户联系电话
+introduce       用户备注
+activeCode      激活码
+role            用户角色    0. 超级管理员   1.管理员    2.会员  3.黄金会员   4.白金会员    5.钻石会员
+state           用户状态    0.冻结   1.正常
+logintime       登录时间 
+age INT         用户年龄 
+registTime      注册时间
+isdel           删除         0.删除  1.正常
+
+
+   INSERT INTO USER(username,PASSWORD,gender,email,telephone,introduce,activeCode,role,state,age,isdel)
+VALUES('wb','wb','1','wb@qq.com','1881518568','我在vr创始人之一','168888',1,1,18,1)
+
+   INSERT INTO USER(username,PASSWORD,gender,email,telephone,introduce,activeCode,role,state,age,isdel)
+VALUES('tj','tj','1','tj@qq.com','18888888888','我在vr创始人之一','168888',1,1,18,1)
+
+  INSERT INTO USER(username,PASSWORD,gender,email,telephone,introduce,activeCode,role,state,age,isdel)
+VALUES('zzj','zzj','1','zzj@qq.com','18888888888','我在vr创始人之一','168888',1,1,18,1)
+
+  INSERT INTO USER(username,PASSWORD,gender,email,telephone,introduce,activeCode,role,state,age,isdel)
+VALUES('tqy','tqy','1','1023198078@qq.com','18888888888','我在vr创始人之一','168888',1,1,18,1)
+
+ INSERT INTO USER(username,PASSWORD,gender,email,telephone,introduce,activeCode,role,state,age,isdel)
+VALUES('xgl','xgl','1','1023198078@qq.com','18888888888','我在vr创始人之一','168888',1,1,18,1)
+ 
